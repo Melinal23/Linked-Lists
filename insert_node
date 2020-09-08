@@ -1,0 +1,23 @@
+def insertNodeAtPosition(head, data, position):
+    if not head:  # if list is empty
+        return SinglyLinkedListNode(data)
+
+    index = 0
+    prev = None
+    ptr = head
+
+    while ptr != None and index < position:  #loop through list until position found
+        prev = ptr
+        ptr = ptr.next
+        index +=1
+  
+    new_node = SinglyLinkedListNode(data) # insert node
+    prev.next = new_node
+    new_node.next = ptr
+
+    return head
+    
+"""
+Time Complexity: O(n) (worse) O(1) (best)
+Space Complexity: O(1)
+"""
